@@ -1,21 +1,33 @@
 pipeline {
-    agent any  
+    agent any
+
     stages {
         stage('Checkout') {
             steps {
-                
-                git 'https://github.com/enamouchi/devops-pipeline-1.git'
+                // Make sure you are checking out the main branch
+                git branch: 'main', url: 'https://github.com/enamouchi/devops-pipeline-1.git'
             }
         }
 
-        stage('Show Date') {
+        stage('Build') {
             steps {
-              
-                script {
-                    echo "Current Date: ${new Date()}"
-                }
+                echo 'Building...'
+                // Add build steps here, such as Maven, Gradle, etc.
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+                // Add test steps here
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                // Add deploy steps here
             }
         }
     }
 }
-
