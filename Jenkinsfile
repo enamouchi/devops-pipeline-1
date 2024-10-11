@@ -1,33 +1,37 @@
 pipeline {
-    agent any
 
-    stages {
-        stage('Checkout') {
-            steps {
-                // Make sure you are checking out the main branch
-                git branch: 'main', url: 'https://github.com/enamouchi/devops-pipeline-1.git'
-            }
-        }
+ agent any
 
-        stage('Build') {
-            steps {
-                echo 'Building...'
-                // Add build steps here, such as Maven, Gradle, etc.
-            }
-        }
+ tools {jdk 'JAVA_HOME’, maven 'M2_HOME'}
 
-        stage('Test') {
-            steps {
-                echo 'Testing...'
-                // Add test steps here
-            }
-        }
+ stages {
 
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
-                // Add deploy steps here
-            }
-        }
-    }
+ stage('GIT') {
+
+           steps {
+
+               git branch: 'main',
+
+               url: ' https://github.com/enamouchi/devops-pipeline-1.git'
+
+          }
+
+     }
+
+ stage ('Compile Stage') {
+
+ steps {
+
+ sh 'mvn clean compile'
+
+ }
+
+ }
+
+ }
+
 }
+
+
+
+     
