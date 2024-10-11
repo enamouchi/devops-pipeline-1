@@ -1,22 +1,33 @@
 pipeline {
-    agent any
 
-    tools {
-        jdk 'JAVA_HOME'
-        maven 'M2_HOME'
-    }
+ agent any
 
-    stages {
-        stage('GIT') {
-            steps {
-                git branch: 'main', url: 'https://github.com/enamouchi/devops-pipeline-1.git'
-            }
-        }
+ tools {jdk 'JAVA_HOME’, maven 'M2_HOME'}
 
-        stage('Compile Stage') {
-            steps {
-                sh 'mvn clean compile'
-            }
-        }
-    }
+ stages {
+
+ stage('GIT') {
+
+           steps {
+
+               git branch: 'main',
+
+               url: ' https://github.com/enamouchi/devops-pipeline-1.gitt'
+
+          }
+
+     }
+
+ stage ('Compile Stage') {
+
+ steps {
+
+ sh 'mvn clean compile'
+
+ }
+
+ }
+
+ }
+
 }
