@@ -12,7 +12,7 @@ pipeline {
 
                git branch: 'main',
 
-               url: ' https://github.com/enamouchi/devops-pipeline-1.git'
+               url: ' https://github.com/enamouchi/devops-pipeline-1.gitt'
 
           }
 
@@ -31,7 +31,3 @@ pipeline {
  }
 
 }
-
-
-
-     
